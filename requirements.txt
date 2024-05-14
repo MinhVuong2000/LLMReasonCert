@@ -1,0 +1,20 @@
+torch --extra-index-url https://download.pytorch.org/whl/cu117
+datasets
+networkx
+openai
+faiss-cpu
+ruff
+sentence_transformers
+numpy
+pandas
+fuzzywuzzy
+transformers>=4.35.2
+transformers_stream_generator
+einops
+python-dotenv
+tiktoken
+sentencepiece
+accelerate
+flash-attn
+protobuf
+minineedle

@@ -1,0 +1,15 @@
+.env
+logs/
+results/
+tmp/
+.vscode
+*.pyc
+slurm-*
+smux-*
+virtuoso_db/virtuoso-opensource/*
+virtuoso_db/virtuoso_db/*
+dis_results/*
+data/*
+test/*
+.DS_Store
+.ruff_cache
