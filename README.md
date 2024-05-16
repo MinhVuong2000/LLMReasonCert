@@ -1,6 +1,9 @@
 Direct Evaluation of CoT in Multi-hop Reasoning with Knowledge Graphs
 ---
 Official Implementation of ["Direct Evaluation of Chain-of-Thought in Multi-hop Reasoning with Knowledge Graphs"](https://arxiv.org/abs/2402.11199).
+
+Has been accepted at [ACL2024](https://2024.aclweb.org/) Findings.
+
 <img src="./figures/framework.png" width = "800" />
 
 Aiming evaluate not only final answers but also intermediate steps in the CoT reasoning capabilities of LLMs in multi-hop question answering, the paper proposed 2 evaluation modules: 
