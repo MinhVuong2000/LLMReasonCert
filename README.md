@@ -56,9 +56,9 @@ you can setup addition arguments:
 - top_k. Default is `10`
 - device. Default is `cpu`
 
-However, remember re-setup them in `./generative-cert.py#L228`
+!Note: remember re-setup them in `./generative-cert.py#L228`
 
-## How to run
+## Framework
 Set your OpenAI api key & Huggingface key (if needed) in `.env` (check file `.env.example` as the example).
 
 ### Discriminative Mode
