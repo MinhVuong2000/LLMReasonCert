@@ -58,9 +58,29 @@ you can setup addition arguments:
 
 !Note: remember re-setup them in `./generative-cert.py#L228`
 
+### Data for Discriminative
+Download data at [here](https://drive.google.com/file/d/1jhZ0qwg2pfuxSiBqtzoGQNjRkoHfdC99/view?usp=sharing)
+#### Generate negative reasoning paths
+- Negative generation model:
+  1. `replace`: replace the entities in reasoning paths.
+  2. `reorder`: reorder the reasoning paths.
+  3. `mislead`: generate the reasoning paths leading to incorrect answers. 
+- Code:
+  
+```python
+# 1. Generate supgraph for misguide paths
+python preprocess_data/subgraph_discriminative_cert.py
+# 2. Generate negative paths:
+## - CWQ dataset
+python gen_negative.py --data_path data/cwq_test_res.csv --kg_path data/cwq_test.jsonl_cwq_test.jsonl --mode {'mislead', 'reorder', 'replace'}
+## - GrailQA dataset
+python gen_negative.py --data_path data/multi_hop_grailqa.csv --kg_path data/grail_w_kg.jsonl --mode {'mislead', 'reorder', 'replace'}
+```
+
 
 ### Data for Discriminative
 Download data at [here](https://drive.google.com/file/d/1jhZ0qwg2pfuxSiBqtzoGQNjRkoHfdC99/view?usp=sharing)
+
 #### Generate negative reasoning paths
 - Negative generation model:
   1. `replace`: replace the entities in reasoning paths.

@@ -57,8 +57,8 @@ class ChatGPT(BaseLanguageModel):
             default=0.7,
             help="Generate params: temperature",
         )
-        parser.add_argument('--model_path', type=str, default='None')
-        parser.add_argument('--quant', choices=["none", "4bit", "8bit"], default='none')
+        parser.add_argument("--model_path", type=str, default="None")
+        parser.add_argument("--quant", choices=["none", "4bit", "8bit"], default="none")
 
     def __init__(self, args):
         super().__init__(args)
@@ -79,7 +79,9 @@ class ChatGPT(BaseLanguageModel):
 
     def prepare_for_inference(self, model_kwargs={}):
         client = OpenAI(
-        api_key=os.environ['OPENAI_API_KEY'],  # this is also the default, it can be omitted
+            api_key=os.environ[
+                "OPENAI_API_KEY"
+            ],  # this is also the default, it can be omitted
         )
         self.client = client
 
