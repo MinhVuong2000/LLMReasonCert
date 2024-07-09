@@ -3,6 +3,7 @@ datasets
 networkx
 openai==1.3.8
 faiss-cpu
+wandb
 ruff
 sentence_transformers
 numpy
