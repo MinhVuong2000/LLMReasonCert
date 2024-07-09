@@ -1,6 +1,7 @@
 import time
 import os
 import openai
+from openai import OpenAI
 from .base_language_model import BaseLanguageModel
 import dotenv
 import tiktoken
@@ -56,6 +57,8 @@ class ChatGPT(BaseLanguageModel):
             default=0.7,
             help="Generate params: temperature",
         )
+        parser.add_argument('--model_path', type=str, default='None')
+        parser.add_argument('--quant', choices=["none", "4bit", "8bit"], default='none')
 
     def __init__(self, args):
         super().__init__(args)
@@ -75,10 +78,10 @@ class ChatGPT(BaseLanguageModel):
         return num_tokens + self.redundant_tokens
 
     def prepare_for_inference(self, model_kwargs={}):
-        """
-        ChatGPT model does not need to prepare for inference
-        """
-        pass
+        client = OpenAI(
+        api_key=os.environ['OPENAI_API_KEY'],  # this is also the default, it can be omitted
+        )
+        self.client = client
 
     def prepare_model_prompt(self, query):
         """
@@ -99,18 +102,18 @@ class ChatGPT(BaseLanguageModel):
             llm_input = llm_input[: self.maximun_token]
         while cur_retry <= num_retry:
             try:
-                response = openai.ChatCompletion.create(
+                response = self.client.chat.completions.create(
                     model=self.model_name,
                     messages=query,
-                    request_timeout=60,
+                    timeout=60,
                     temperature=self.args.temperature,
                     top_p=self.args.top_p,
                     n=self.args.num_return_sequences,
                 )
                 result = (
-                    [res["message"]["content"].strip() for res in response["choices"]]
-                    if len(response["choices"]) > 1
-                    else response["choices"][0]["message"]["content"].strip()
+                    [res.message.content.strip() for res in response.choices]
+                    if len(response.choices) > 1
+                    else response.choices[0].message.content.strip()
                 )  # type: ignore
                 return result
             except Exception as e:

@@ -13,3 +13,6 @@ data/*
 test/*
 .DS_Store
 .ruff_cache
+wandb
+new_dis_results/*
+new_results*

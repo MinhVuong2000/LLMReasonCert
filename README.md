@@ -58,12 +58,42 @@ you can setup addition arguments:
 
 !Note: remember re-setup them in `./generative-cert.py#L228`
 
+
+### Data for Discriminative
+Download data at [here](https://drive.google.com/file/d/1jhZ0qwg2pfuxSiBqtzoGQNjRkoHfdC99/view?usp=sharing)
+#### Generate negative reasoning paths
+- Negative generation model:
+  1. `replace`: replace the entities in reasoning paths.
+  2. `reorder`: reorder the reasoning paths.
+  3. `mislead`: generate the reasoning paths leading to incorrect answers. 
+- Code:
+  
+```python
+# 1. Generate supgraph for misguide paths
+python preprocess_data/subgraph_discriminative_cert.py
+# 2. Generate negative paths:
+## - CWQ dataset
+python gen_negative.py --data_path data/cwq_test_res.csv --kg_path data/cwq_test.jsonl_cwq_test.jsonl --mode {'mislead', 'reorder', 'replace'}
+## - GrailQA dataset
+python gen_negative.py --data_path data/multi_hop_grailqa.csv --kg_path data/grail_w_kg.jsonl --mode {'mislead', 'reorder', 'replace'}
+```
+
+
 ## Framework
 Set your OpenAI api key & Huggingface key (if needed) in `.env` (check file `.env.example` as the example).
 
 ### Discriminative Mode
+- Evaluation for ground-truth reasoning paths
 ```bash
-    sh scripts/submit_discriminative_cert.sh
+    sh scripts/disc-cert/submit_discriminative_cert.sh
+```
+- Evaluation for generated negative reasoning paths
+```bash
+    sh scripts/disc-cert/submit_discriminative_cert_neg.sh
+```
+- Get results
+```python
+python scripts/disc-cert/summary_results.py
 ```
 
 ### Generative Mode

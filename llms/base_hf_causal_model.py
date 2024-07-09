@@ -3,6 +3,7 @@ import torch
 from .base_language_model import BaseLanguageModel
 import os
 import dotenv
+import distutils.util
 
 dotenv.load_dotenv()
 
@@ -41,6 +42,7 @@ class HfCausalModel(BaseLanguageModel):
             default=0.7,
             help="Generate params: temperature",
         )
+        parser.add_argument('--flash_atten_2', default=False, type=lambda x:bool(distutils.util.strtobool(x)), help="enable flash attention 2")
 
         parser.add_argument("--dtype", choices=["fp32", "fp16", "bf16"], default="fp16")
         parser.add_argument("--quant", choices=["none", "4bit", "8bit"], default="none")
@@ -60,6 +62,7 @@ class HfCausalModel(BaseLanguageModel):
             load_in_8bit=self.args.quant == "8bit",
             load_in_4bit=self.args.quant == "4bit",
             trust_remote_code=True,
+            use_flash_attention_2 = self.args.flash_atten_2,
         )
         self.generator = pipeline(
             "text-generation", model=model, tokenizer=self.tokenizer
