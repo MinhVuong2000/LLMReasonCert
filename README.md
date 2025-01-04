@@ -2,7 +2,7 @@ Direct Evaluation of CoT in Multi-hop Reasoning with Knowledge Graphs
 ---
 Official Implementation of ["Direct Evaluation of Chain-of-Thought in Multi-hop Reasoning with Knowledge Graphs"](https://arxiv.org/abs/2402.11199).
 
-Has been accepted at [ACL2024](https://2024.aclweb.org/) Findings.
+Has been accepted at [ACL2024]([https://2024.aclweb.org/](https://aclanthology.org/2024.findings-acl.168)) Findings.
 
 <img src="./figures/framework.png" width = "800" />
 
@@ -138,5 +138,29 @@ If you find this paper or the repo useful for your work, please consider citing 
     eprint={2402.11199},
     archivePrefix={arXiv},
     primaryClass={cs.CL}
+}
+```
+or 
+```
+@inproceedings{nguyen-etal-2024-direct,
+    title = "Direct Evaluation of Chain-of-Thought in Multi-hop Reasoning with Knowledge Graphs",
+    author = "Nguyen, Thi  and
+      Luo, Linhao  and
+      Shiri, Fatemeh  and
+      Phung, Dinh  and
+      Li, Yuan-Fang  and
+      Vu, Thuy-Trang  and
+      Haffari, Gholamreza",
+    editor = "Ku, Lun-Wei  and
+      Martins, Andre  and
+      Srikumar, Vivek",
+    booktitle = "Findings of the Association for Computational Linguistics: ACL 2024",
+    month = aug,
+    year = "2024",
+    address = "Bangkok, Thailand",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.findings-acl.168/",
+    doi = "10.18653/v1/2024.findings-acl.168",
+    pages = "2862--2883"
 }
 ```
