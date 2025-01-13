@@ -1,8 +1,8 @@
 Direct Evaluation of CoT in Multi-hop Reasoning with Knowledge Graphs
 ---
-Official Implementation of ["Direct Evaluation of Chain-of-Thought in Multi-hop Reasoning with Knowledge Graphs"](https://arxiv.org/abs/2402.11199).
+Official Implementation of ["Direct Evaluation of Chain-of-Thought in Multi-hop Reasoning with Knowledge Graphs"](https://aclanthology.org/2024.findings-acl.168).
 
-Has been accepted at [ACL2024]([https://2024.aclweb.org/](https://aclanthology.org/2024.findings-acl.168)) Findings.
+Has been accepted at [ACL2024](https://aclanthology.org/2024.findings-acl.168) Findings.
 
 <img src="./figures/framework.png" width = "800" />
 
