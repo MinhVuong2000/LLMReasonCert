@@ -1,4 +1,4 @@
-Direct Evaluation of CoT in Multi-hop Reasoning with Knowledge Graphs
+[ACL'24] Direct Evaluation of CoT in Multi-hop Reasoning with Knowledge Graphs
 ---
 Official Implementation of ["Direct Evaluation of Chain-of-Thought in Multi-hop Reasoning with Knowledge Graphs"](https://aclanthology.org/2024.findings-acl.168).
 
@@ -144,7 +144,7 @@ or
 ```
 @inproceedings{nguyen-etal-2024-direct,
     title = "Direct Evaluation of Chain-of-Thought in Multi-hop Reasoning with Knowledge Graphs",
-    author = "Nguyen, Thi  and
+    author = "Nguyen, Minh-Vuong  and
       Luo, Linhao  and
       Shiri, Fatemeh  and
       Phung, Dinh  and
